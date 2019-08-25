@@ -1,0 +1,11 @@
+--2019-08-24 21:56:49--  https://www.google.com/url?sa=i
+Resolving www.google.com (www.google.com)... 172.217.14.228, 2607:f8b0:400a:803::2004
+Connecting to www.google.com (www.google.com)|172.217.14.228|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘haproxy-icon.png’
+
+haproxy-icon.png                                                [<=>                                                                                                                                      ]       0  --.-KB/s               haproxy-icon.png                                                [ <=>                                                                                                                                     ]   1.38K  --.-KB/s    in 0s      
+
+2019-08-24 21:56:50 (19.8 MB/s) - ‘haproxy-icon.png’ saved [1408]
+

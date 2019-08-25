@@ -1,0 +1,47 @@
+version: '3.2'
+
+services:
+  proxy:
+    image: dockerflow/docker-flow-proxy
+    environment:
+      # REQUIRED: Should be equal to the service name prefixed by "tasks." when
+      # deployed inside an overlay network
+      AGENT_CLUSTER_ADDR: tasks.agent
+      LISTENER_ADDRESS: swarm-listener
+      MODE: swarm
+      AGENT_PORT: 9001
+      CAPTURE_REQUEST_HEADER: 'Host:15,X-Forwarded-For:20,Referer:15'
+      BIND_PORTS: '80 accept-proxy,443 accept-proxy:ssl'
+      DEFAULT_PORTS: '80 accept-proxy,443 accept-proxy:ssl'
+      # LOG_LEVEL: debug
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    deploy:
+      mode: global
+      placement:
+        constraints: [node.platform.os == linux]
+
+  swarm-listener:
+    image: dockerflow/docker-flow-swarm-listener
+    environment:
+      # REQUIRED: Should be equal to the service name prefixed by "tasks." when
+      # deployed inside an overlay network
+      DF_NOTIFY_CREATE_SERVICE_URL: http://proxy:8080/v1/docker-flow-proxy/reconfigure
+      DF_NOTIFY_REMOVE_SERVICE_URL: http://proxy:8080/v1/docker-flow-proxy/remove
+    networks:
+      - proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+  proxy:
+    driver: overlay
+    attachable: true

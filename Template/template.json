@@ -2883,29 +2883,40 @@
       }
     ]
   },
-    {  
+  {
     "type": 2,
     "title": "Docker Flow Proxy",
     "description": "The goal of the Docker Flow Proxy project is to provide an easy way to reconfigure proxy every time a new service is deployed, or when a service is scaled. It does not try to "reinvent the wheel", but to leverage the existing leaders and combine them through an easy to use integration. It uses HAProxy as a proxy and adds custom logic that allows on-demand reconfiguration."
-    "logo": "https://raw.githubusercontent.com/Qballjos/portainer_templates/master/Images/organizr-icon.png",
-    "image": "organizrtools/organizr-v2:latest",
+    "logo": "https://github.com/nurse-curtis/portainer_templates/blob/master/Images/haproxy-icon.png",
     "category": ["Other", "Tools"],
     "platform": "linux",
-    "ports": [  
-      "80/tcp"
-    ],
-    "volumes": [{"container": "/config"}],
-    "env": [  
-      {  
-        "name":"PUID",
-        "label":"PUID",
-        "set":""
-      },
-      {  
-        "name":"PGID",
-        "label":"PGID",
-        "set":""
-      }
-    ]
+    "repository": {
+      "url": "https://github.com/nurse-curtis/portainer_templates",
+      "stackfile": "Stacks/flowproxy/docker-stack.yml"
+    }
   },
+  {
+    "type": 2,
+    "title": "Docker Swarm Janitor",
+    "description": "Clean unused containers throughout the swarm",
+    "logo": "https://github.com/nurse-curtis/portainer_templates/blob/master/Images/docker-janitor.png",
+    "category": ["Other", "Tools"],
+    "platform": "linux",
+    "repository": {
+      "url": "https://github.com/nurse-curtis/portainer_templates",
+      "stackfile": "Stacks/janitor/docker-stack.yml"
+    }
+  },
+  {
+    "type": 2,
+    "title": "Ouroboros",
+    "description": "Automated upgrading of containers through the swarm",
+    "logo": "https://github.com/nurse-curtis/portainer_templates/blob/master/Images/ouroboros.png",
+    "category": ["Other", "Tools"],
+    "platform": "linux",
+    "repository": {
+      "url": "https://github.com/nurse-curtis/portainer_templates",
+      "stackfile": "Stacks/ouroboros/docker-stack.yml"
+    }
+  }
 ]

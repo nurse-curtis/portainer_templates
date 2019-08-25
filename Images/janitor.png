@@ -1,0 +1,11 @@
+--2019-08-24 22:20:04--  https://discourse.janitor.technology/uploads/default/original/1X/98bfc1c12a353cc4b57b87f25b8c1370c8abc3f9.png
+Resolving discourse.janitor.technology (discourse.janitor.technology)... 137.74.166.205, 2001:41d0:302:2100::7330
+Connecting to discourse.janitor.technology (discourse.janitor.technology)|137.74.166.205|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3645 (3.6K) [image/png]
+Saving to: ‘98bfc1c12a353cc4b57b87f25b8c1370c8abc3f9.png’
+
+     0K ...                                                   100%  126M=0s
+
+2019-08-24 22:20:06 (126 MB/s) - ‘98bfc1c12a353cc4b57b87f25b8c1370c8abc3f9.png’ saved [3645/3645]
+
